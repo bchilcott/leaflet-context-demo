@@ -6,6 +6,11 @@ export default function ControlBar() {
   const [position, setPosition] = useState(() => map?.getCenter())
   const [zoom, setZoom] = useState(() => map?.getZoom())
 
+  useEffect(() => {
+    setPosition(map?.getCenter())
+    setZoom(map?.getZoom())
+  }, [map])
+
   const reset = useCallback(() => {
     map?.setView([51.505, -0.09], 13)
   }, [map])
